@@ -1,0 +1,46 @@
+@import url('./main-layout.css');
+@import url('./views/gridwith-filters-view.css');
+@import url('./views/credit-card-form-view.css');
+@import url('@fontsource/cairo/index.css');
+
+html {
+      --lumo-primary-color: rgb(0, 150, 136);
+      --lumo-primary-color-50pct: rgba(0, 150, 136, 0.5);
+      --lumo-primary-color-10pct: rgba(0, 150, 136, 0.1);
+      --lumo-success-text-color: rgb(174, 234, 0);
+      --lumo-primary-text-color: rgb(0, 77, 64);
+      --lumo-success-color: rgb(198, 255, 0);
+      --lumo-success-color-50pct: rgba(198, 255, 0, 0.5);
+      --lumo-success-color-10pct: rgba(198, 255, 0, 0.1);
+      --lumo-error-text-color: rgb(213, 0, 0);
+      --lumo-error-color: rgb(244, 67, 54);
+      --lumo-error-color-50pct: rgba(244, 67, 54, 0.5);
+      --lumo-error-color-10pct: rgba(244, 67, 54, 0.1);
+      --lumo-body-text-color: rgb(38, 50, 56);
+      --lumo-shade: rgb(38, 50, 56);
+      --lumo-shade-5pct: rgba(38, 50, 56, 0.05);
+      --lumo-shade-10pct: rgba(38, 50, 56, 0.1);
+      --lumo-shade-20pct: rgba(38, 50, 56, 0.2);
+      --lumo-shade-30pct: rgba(38, 50, 56, 0.3);
+      --lumo-shade-40pct: rgba(38, 50, 56, 0.4);
+      --lumo-shade-50pct: rgba(38, 50, 56, 0.5);
+      --lumo-shade-60pct: rgba(38, 50, 56, 0.6);
+      --lumo-shade-70pct: rgba(38, 50, 56, 0.7);
+      --lumo-shade-80pct: rgba(38, 50, 56, 0.8);
+      --lumo-shade-90pct: rgba(38, 50, 56, 0.9);
+      --lumo-base-color: rgba(227, 199, 175, 0.55);
+      --lumo-border-radius-s: 1px;
+      --lumo-border-radius-m: 2px;
+      --lumo-border-radius-l: 4px;
+      --lumo-size-xl: 3rem;
+      --lumo-size-l: 2.5rem;
+      --lumo-size-m: 2rem;
+      --lumo-size-s: 1.75rem;
+      --lumo-size-xs: 1.5rem;
+      --lumo-space-xl: 1.875rem;
+      --lumo-space-l: 1.25rem;
+      --lumo-space-m: 0.625rem;
+      --lumo-space-s: 0.3125rem;
+      --lumo-space-xs: 0.1875rem;
+      --lumo-font-family: Cairo;
+}

@@ -1,2 +1,2 @@
-# vaadin-osm220594-6acif
-Vaadin Projekt 6ACIF
+VAADIN Projekt 6ACIF
+OSM220594
