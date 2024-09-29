@@ -34,7 +34,8 @@ import java.util.function.Consumer;
 @Route(value = "teppich/:teppichId?/create", layout = MainLayout.class)
 public class TeppichCreateView extends VerticalLayout implements BeforeEnterObserver {
 
-    public static final String PRODUCT_ID_PARAM = "teppichId";
+    public static final String TEPPICH_ID_PARAMETER = "teppichId";
+
 
     private final TextField bezeichnung = new TextField("Bezeichnung");
     private final NumberField preis = new NumberField("Preis");
@@ -56,6 +57,8 @@ public class TeppichCreateView extends VerticalLayout implements BeforeEnterObse
     public TeppichCreateView() {
         log.debug("constructor ");
         this.teppichService = TeppichService.getInstance();
+        // Initialisiere derzeitigesTeppich mit einem neuen Teppich-Objekt
+        this.derzeitigesTeppich = new Teppich();
         init();
     }
 
@@ -121,27 +124,20 @@ public class TeppichCreateView extends VerticalLayout implements BeforeEnterObse
 
     // -- ACTIONS ------------------------------------------------------------------------------------------------------
 
-
     private void onSave() {
-
         try {
-
-//            Teppich teppich = new Teppich();
+            // Schreibe die Formularwerte in das Teppich-Objekt
             binder.writeBean(derzeitigesTeppich);
 
             log.debug("teppich={}", derzeitigesTeppich);
             boolean success = teppichService.save(derzeitigesTeppich);
             if (success) {
-                Notification.show("Teppich mit dem Namen " + derzeitigesTeppich.getBezeichnung() + " erfolgreich gespeichert");
-
-                getUI().ifPresent(new Consumer<UI>() {
-                    @Override
-                    public void accept(UI ui) {
-                        log.debug("nav to {}", TeppichCreateView.class);
-                        ui.navigate( TeppichGridView.class );
-                    }
+                Notification.show("Teppich mit der Bezeichnung " + derzeitigesTeppich.getBezeichnung() + " erfolgreich gespeichert");
+                getUI().ifPresent(ui -> {
+                    log.debug("nav to {}", TeppichCreateView.class);
+                    // Navigiere zu einer anderen Ansicht
+                    ui.navigate(TeppichGridView.class);
                 });
-
             } else {
                 Notification.show("Fehler - Teppich mit der Bezeichnung " + derzeitigesTeppich.getBezeichnung() + " konnte nicht gespeichert werden.");
             }
@@ -153,6 +149,37 @@ public class TeppichCreateView extends VerticalLayout implements BeforeEnterObse
             Notification.show(e.getMessage());
         }
     }
+//    private void onSave() {
+//
+//        try {
+//
+////            Teppich teppich = new Teppich();
+//            binder.writeBean(derzeitigesTeppich);
+//
+//            log.debug("teppich={}", derzeitigesTeppich);
+//            boolean success = teppichService.save(derzeitigesTeppich);
+//            if (success) {
+//                Notification.show("Teppich mit dem Namen " + derzeitigesTeppich.getBezeichnung() + " erfolgreich gespeichert");
+//
+//                getUI().ifPresent(new Consumer<UI>() {
+//                    @Override
+//                    public void accept(UI ui) {
+//                        log.debug("nav to {}", TeppichCreateView.class);
+//                        ui.navigate( TeppichGridView.class );
+//                    }
+//                });
+//
+//            } else {
+//                Notification.show("Fehler - Teppich mit der Bezeichnung " + derzeitigesTeppich.getBezeichnung() + " konnte nicht gespeichert werden.");
+//            }
+//        } catch (ValidationException e) {
+//            log.warn("Benutzereingabe falsch. " + e.getMessage());
+//            Notification.show(e.getMessage());
+//        } catch (Exception e) {
+//            log.warn(e.getMessage());
+//            Notification.show(e.getMessage());
+//        }
+//    }
 
 
     public void setTeppich(Teppich teppich) {
@@ -162,6 +189,8 @@ public class TeppichCreateView extends VerticalLayout implements BeforeEnterObse
         this.derzeitigesTeppich = teppich;
         log.debug("{}", teppich);
         binder.readBean(teppich);
+
+
     }
 
     private void onCancel() {
@@ -178,7 +207,7 @@ public class TeppichCreateView extends VerticalLayout implements BeforeEnterObse
 
         log.debug("beforeEnter {}", event);
 
-        event.getRouteParameters().getLong(TeppichCreateView.PRODUCT_ID_PARAM)
+        event.getRouteParameters().getLong(TeppichCreateView.TEPPICH_ID_PARAMETER)
                 .ifPresentOrElse(new Consumer<Long>() {
                     @Override
                     public void accept(Long teppichId) {

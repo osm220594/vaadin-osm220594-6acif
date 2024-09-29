@@ -1,0 +1,17 @@
+{
+  "frontendFolder": "C:/Users/ThinkPad/Desktop/vaadin-osm220594-6acif/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "C:/Users/ThinkPad/Desktop/vaadin-osm220594-6acif/frontend/generated/jar-resources",
+  "staticOutput": "C:/Users/ThinkPad/Desktop/vaadin-osm220594-6acif/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "C:\\Users\\ThinkPad\\Desktop\\vaadin-osm220594-6acif\\target\\classes\\META-INF\\VAADIN\\config",
+  "frontendBundleOutput": "C:\\Users\\ThinkPad\\Desktop\\vaadin-osm220594-6acif\\target\\classes\\META-INF\\VAADIN\\webapp",
+  "devBundleOutput": "C:/Users/ThinkPad/Desktop/vaadin-osm220594-6acif/target/dev-bundle/webapp",
+  "devBundleStatsOutput": "C:/Users/ThinkPad/Desktop/vaadin-osm220594-6acif/target/dev-bundle/config",
+  "jarResourcesFolder": "C:/Users/ThinkPad/Desktop/vaadin-osm220594-6acif/frontend/generated/jar-resources",
+  "themeName": "teppich-center",
+  "clientServiceWorkerSource": "C:\\Users\\ThinkPad\\Desktop\\vaadin-osm220594-6acif\\target\\sw.ts",
+  "pwaEnabled": false,
+  "offlineEnabled": false,
+  "offlinePath": "'offline.html'"
+}

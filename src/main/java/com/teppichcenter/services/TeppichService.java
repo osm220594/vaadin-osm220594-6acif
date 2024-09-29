@@ -13,8 +13,11 @@ public class TeppichService implements Service<Teppich> {
     public static TeppichService getInstance() {
         return INSTANCE;
     }
+
     private final List<Teppich> data = new ArrayList<>();
     private final List<Color> colors = new ArrayList<>();
+
+
     private TeppichService() {
 
         colors.addAll(List.of(
@@ -65,6 +68,7 @@ public class TeppichService implements Service<Teppich> {
                 .filter(teppich -> id.equals( teppich.getId() ))
                 .findFirst();
     }
+
     @Override
     public boolean save(Teppich teppich) {
         if(teppich.getId() == null) {
@@ -79,6 +83,8 @@ public class TeppichService implements Service<Teppich> {
             return true;
         }
     }
+
+
     @Override
     public boolean deleteAll(Collection<Teppich> teppicheLoeschen) {
         return data.removeAll( teppicheLoeschen );
@@ -98,6 +104,7 @@ public class TeppichService implements Service<Teppich> {
     public int count() {
         return data.size();
     }
+
     public Optional<Color> findColorsByChar(String colorString) {
         return colors.stream().filter(new Predicate<Color>() {
             @Override

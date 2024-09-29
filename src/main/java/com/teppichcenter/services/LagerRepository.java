@@ -7,6 +7,7 @@ import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+
 public interface LagerRepository extends CrudRepository<Lager, Long>, ListPagingAndSortingRepository<Lager, Long>{
 
     @Modifying  // Alle Änderungen (insert, update, delete) in der DB benötigen die Annotation @Modifying

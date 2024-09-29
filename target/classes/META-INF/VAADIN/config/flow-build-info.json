@@ -1,0 +1,17 @@
+{
+  "productionMode": false,
+  "eagerServerLoad": false,
+  "npmFolder": "C:\\Users\\ThinkPad\\Desktop\\vaadin-osm220594-6acif",
+  "node.version": "v20.11.1",
+  "node.download.root": "https://nodejs.org/dist/",
+  "frontendFolder": "C:\\Users\\ThinkPad\\Desktop\\vaadin-osm220594-6acif\\frontend",
+  "connect.javaSourceFolder": "C:\\Users\\ThinkPad\\Desktop\\vaadin-osm220594-6acif\\src\\main\\java",
+  "javaResourceFolder": "C:\\Users\\ThinkPad\\Desktop\\vaadin-osm220594-6acif\\src\\main\\resources",
+  "connect.applicationProperties": "C:\\Users\\ThinkPad\\Desktop\\vaadin-osm220594-6acif\\src\\main\\resources\\application.properties",
+  "connect.openApiFile": "C:\\Users\\ThinkPad\\Desktop\\vaadin-osm220594-6acif\\target\\generated-resources\\openapi.json",
+  "project.frontend.generated": "C:\\Users\\ThinkPad\\Desktop\\vaadin-osm220594-6acif\\frontend\\generated",
+  "pnpm.enable": false,
+  "bun.enable": false,
+  "require.home.node": false,
+  "build.folder": "target"
+}

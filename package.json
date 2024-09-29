@@ -272,7 +272,7 @@
     "@polymer/polymer": "$@polymer/polymer",
     "proj4": "$proj4",
     "@vaadin/vaadin-themable-mixin": "$@vaadin/vaadin-themable-mixin",
-    "@fontsource/cairo": "$@fontsource/cairo",
-    "date-fns": "$date-fns"
+    "date-fns": "$date-fns",
+    "@fontsource/cairo": "$@fontsource/cairo"
   }
 }

@@ -29,6 +29,8 @@ import org.vaadin.lineawesome.LineAwesomeIcon;
 import java.util.Set;
 import java.util.function.Consumer;
 
+
+
 @Slf4j
 @PageTitle("TeppicheView")
 @Route(value = "teppiche/list", layout = MainLayout.class)
@@ -40,7 +42,7 @@ public class TeppichGridView extends VerticalLayout {
     private final Grid<Teppich> grid = new Grid<>(Teppich.class, false);
     private final Grid<Lager> grid2 = new Grid<>(Lager.class, false);
 
-    public TeppichGridView(@Autowired ApplicationService service, ApplicationService2 service2) {
+    public TeppichGridView(@Autowired ApplicationService service,@Autowired ApplicationService2 service2) {
         this.service = service;
         this.service2 = service2;
         init();
@@ -97,10 +99,25 @@ public class TeppichGridView extends VerticalLayout {
 
         grid2.addColumn(Lager::getId).setSortProperty("id").setHeader("ID");
         grid2.addColumn(Lager::getName).setSortProperty("name").setHeader("Lager");
+
+
         grid2.addComponentColumn((Lager lager) -> {
             Button button = new Button(LineAwesomeIcon.TRASH_SOLID.create(), event -> onDeleteLagerEinzelnd(lager));
             return new HorizontalLayout(button);
         });
+
+
+//        grid2.addComponentColumn(new ValueProvider<Lager, Component>() {
+//            @Override
+//            public Component apply(Lager lager) {
+//                return new HorizontalLayout(new Button(LineAwesomeIcon.EDIT_SOLID.create(), new ComponentEventListener<ClickEvent<Button>>() {
+//                    @Override
+//                    public void onComponentEvent(ClickEvent<Button> event) {
+//                        onEdit2( lager );
+//                    }
+//                }));
+//            }
+//        });
 
 
 
@@ -152,15 +169,28 @@ public class TeppichGridView extends VerticalLayout {
 
     // -- ACTIONS ------------------------------------------------------------------------------------------------------
     private void onEdit(Teppich teppich) {
+
+
         Long id = teppich.getId();
         getUI().ifPresent(new Consumer<UI>() {
             @Override
             public void accept(UI ui) {
-                ui.navigate( TeppichCreateView.class, new RouteParam( TeppichCreateView.PRODUCT_ID_PARAM, id ));
+                ui.navigate( TeppichCreateView.class, new RouteParam( TeppichCreateView.TEPPICH_ID_PARAMETER, teppich.getId() ));
             }
         });
 
     }
+
+//    private void onEdit2(Lager lager) {
+//        Long id = lager.getId();
+//        getUI().ifPresent(new Consumer<UI>() {
+//            @Override
+//            public void accept(UI ui) {
+//                ui.navigate( LagerCreateView.class, new RouteParam( LagerCreateView.PRODUCT_ID_PARAM, id ));
+//            }
+//        });
+//
+//    }
 
     private void onDelete() {
         try {
